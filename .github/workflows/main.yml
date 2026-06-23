@@ -14,6 +14,10 @@ on:
       file_name:
         description: 'The name of the file'
         required: true
+
+      tag_id:
+        description: 'Tag name'
+        required: true
       
 
 jobs:
@@ -31,7 +35,7 @@ jobs:
       - name: Upload binary to release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: test
+          tag_name: ${{ inputs.tag_id }}
           name: "${{ inputs.file_name }}"
           body: "Downloaded from ${{ inputs.download_url }}"
           files: dn/file.${{ inputs.media_type }}
