@@ -26,7 +26,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install wget curl -y
 
       - name: Download the respective media
-        run: mkdir /dn && wget -O /dn/file.${{ inputs.media_type }} ${{ inputs.download_url }}
+        run: mkdir dn && wget -O dn/file.${{ inputs.media_type }} ${{ inputs.download_url }}
 
       - name: Upload binary to release
         uses: softprops/action-gh-release@v2
@@ -34,7 +34,7 @@ jobs:
           tag_name: botapi-binary
           name: "${{ inputs.file_name }}"
           body: "Downloaded from ${{ inputs.download_url }}"
-          files: /dn/file.${{ inputs.media_type }}
+          files: dn/file.${{ inputs.media_type }}
           draft: false
           prerelease: false
         env:
