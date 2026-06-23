@@ -31,7 +31,7 @@ jobs:
       - name: Upload binary to release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: botapi-binary
+          tag_name: test
           name: "${{ inputs.file_name }}"
           body: "Downloaded from ${{ inputs.download_url }}"
           files: dn/file.${{ inputs.media_type }}
